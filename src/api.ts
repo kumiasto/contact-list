@@ -1,7 +1,7 @@
 import mockData from "./mockData.json";
 
 let cursor = -1;
-const size = 10;
+export const PAGE_SIZE = 10;
 
 function delay(time: number): Promise<void> {
   return new Promise((resolve) => setTimeout(() => resolve(), time));
@@ -13,7 +13,7 @@ export default async function apiData() {
     throw new Error("Something went wrong");
   }
   cursor += 1;
-  const start = cursor * size;
-  const end = cursor * size + size;
+  const start = cursor * PAGE_SIZE;
+  const end = cursor * PAGE_SIZE + PAGE_SIZE;
   return mockData.slice(start, end);
 }

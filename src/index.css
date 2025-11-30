@@ -14,9 +14,11 @@ code {
 .App {
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: space-between;
   margin: 20px 0;
+  gap: 24px;
 }
 
 .selected {
@@ -24,6 +26,21 @@ code {
   font-size: 26px;
   font-weight: 700;
   margin: 10px 20px 0 0;
+}
+
+.person-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 32px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
+  margin: 10px;
+  background: #fff;
+  cursor: pointer;
+  border: none;
+  width: 50%;
+  font: inherit;
+  border-radius: 25px;
 }
 
 .person-info:hover {
@@ -49,4 +66,139 @@ code {
   color: #666666;
   font-size: 14px;
   line-height: 1.8em;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader-large {
+  width: 48px;
+  height: 48px;
+  border-color: #016630;
+  border-top-color: transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadMoreWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.loadMore {
+  padding: 12px 32px;
+  border-radius: 12px;
+  border: none;
+  background-color: #016630;
+  color: white;
+  min-height: 48px;
+  min-width: 200px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loadMore:hover:not(:disabled) {
+  background-color: #014d24;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(1, 102, 48, 0.3);
+}
+
+.loadMore:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.loadMore:disabled {
+  background-color: #8bc4a8;
+  cursor: not-allowed;
+}
+.error-notification {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background-color: #f44336;
+  padding: 16px 20px;
+  color: white;
+  width: 320px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 9999;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-notification-content {
+  flex: 1;
+}
+
+.error-notification-text {
+  margin: 0;
+  font-size: 14px;
+}
+
+.error-notification-close {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.error-notification-close:hover {
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
