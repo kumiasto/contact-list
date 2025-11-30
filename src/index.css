@@ -26,6 +26,7 @@ code {
   font-size: 26px;
   font-weight: 700;
   margin: 10px 20px 0 0;
+  scroll-margin-top: 30px;
 }
 
 .person-info {
@@ -134,6 +135,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-margin-bottom: 30px;
 }
 
 .loadMore:hover:not(:disabled) {
